@@ -1,3 +1,58 @@
+IMPORTANT NOTE----->
+--->   Most of the time, slick slider code does'nt work properly while getting dynamic data from API on different condition...    
+--->   Try to use following code to destroy and reinitialize slick slider.....
+
+if(your_condition){
+      setTimeout(() => {
+      $('.slider-for').slick('unslick');
+      $('.slider-nav').slick('unslick');
+
+        $(".slider-for").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: ".slider-nav"
+        });
+        
+        $(".slider-nav").slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: ".slider-for",
+          dots: false,
+          vertical: false,
+      verticalSwiping: false,
+          focusOnSelect: true
+        });
+       
+  
+      }, 50);
+
+    }else{
+      setTimeout(() => {
+        $(".slider-for").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: ".slider-nav"
+        });
+        
+        $(".slider-nav").slick({
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: ".slider-for",
+          dots: false,
+          vertical: false,
+      verticalSwiping: false,
+          focusOnSelect: true
+        });
+       
+  
+      }, 50);
+    }
+
+-------------------------------------Get Started----------------------------
 -------------------------------------------------------------Css---------------------------------------------------------------
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
